@@ -1,0 +1,98 @@
+body {
+    padding: 50px;
+    font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00b7ff;
+    text-decoration: none;
+    font-size: 1.15rem;
+}
+
+.links {
+    background-color: rgb(12, 11, 11);
+    color: rgb(212, 209, 212);
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.container-of-links {
+    margin: 2rem 0;
+}
+
+input {
+    display: block;
+    margin: 1rem 0;
+    padding: 0.5rem 0.1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    border-color: transparent;
+}
+
+textarea {
+    border-color: transparent;
+    border-radius: 0.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.submit-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    text-align: center;
+    width: 30%;
+    border-radius: 0.49rem;
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+h1 {
+    text-align: center;
+}
+
+.form {
+    width: 500px;
+    background-color: rgb(97, 168, 250);
+    padding: 2rem;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+}
+
+.like {
+    background-color: red;
+    padding: 0.5rem;
+    color: white;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.cnt-of-like-delete {
+    margin: 2.4rem 0;
+}
+
+li {
+    margin: 0.5rem 0;
+}
+
+.inline {
+    display: inline;
+    width: 10%;
+}
+
+.select-category {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background-color: rgb(230, 213, 213);
+    margin-right: 0.8rem;
+    border: none;
+    border-radius: 0.5rem;
+}
