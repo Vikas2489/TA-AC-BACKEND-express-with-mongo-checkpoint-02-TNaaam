@@ -1,0 +1,40 @@
+<%-include( 'partials/header' )-%>
+
+    <body>
+        <h1>List of events are given below:-</h1>
+        <ul>
+            <% events.forEach(event=>{%>
+                <li>
+                    <a href="events/<%=event.id%>">
+                        <%= event.title%>
+                    </a>
+                </li>
+                <%})%>
+        </ul>
+        <div class="container-of-links">
+            <a href="/events/new" class="links"> Add Event</a>
+        </div>
+        <aside>
+            <h3>All Categories Are Listed Below :-</h3>
+            <nav>
+                <ul>
+                    <% events.forEach((event)=>{%>
+                        <% event.category.forEach(category=>{ %>
+                            <li>
+                                <a href="/events/<%=category%>/category">
+                                    <%=category%>
+                                </a>
+                            </li>
+                            <%})%>
+                                <%}) %>
+                </ul>
+
+            </nav>
+            <form action="" method="GET">
+                <input type="text" placeholder="Search By category">
+                <input class="inline" type="submit" value="Search By Category">
+            </form>
+        </aside>
+        <!-- <script src="/javascripts/script.js"></script> -->
+    </body>
+    <%-include( 'partials/footer' )-%>

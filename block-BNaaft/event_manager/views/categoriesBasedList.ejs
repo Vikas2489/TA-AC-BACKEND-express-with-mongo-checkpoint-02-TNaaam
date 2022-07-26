@@ -1,0 +1,18 @@
+<%- include( 'partials/header' ) -%>
+
+    <body>
+        <h1>List of events based on specific category are given below:-</h1>
+        <ul>
+            <% events.forEach(event=>{%>
+                <li>
+                    <a href="/events/<%=event.id%>">
+                        <%= event.title%>
+                    </a>
+                </li>
+                <%})%>
+        </ul>
+        <div class="container-of-links">
+            <a href="/events/new" class="links"> Add Event</a>
+        </div>
+    </body>
+    <%- include( 'partials/footer' ) -%>
