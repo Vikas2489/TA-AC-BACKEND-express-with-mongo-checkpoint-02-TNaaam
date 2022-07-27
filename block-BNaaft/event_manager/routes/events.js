@@ -12,14 +12,19 @@ router.get('/new', function(req, res, next) {
 router.get("/", function(req, res, next) {
     Event.find({}, (err, events) => {
         if (err) return next(err);
-        res.render("listOfEvents", { events });
-    });
+        Event.distinct("category", (err, arrOfAllCategories) => {
+            if (err) return next(err);
+            Event.distinct("location", (err, allLocation) => {
+                if (err) return next(err);
+                res.render("listOfEvents", { events, arrOfAllCategories, allLocation });
+            })
+        });
+    })
 });
 
 // post the form
 router.post("/", (req, res, next) => {
     req.body.category = req.body.category.trim().split(" ");
-    console.log(req.body, "eventFirstTimeCreated");
     Event.create(req.body, (err, event) => {
         if (err) return next(err);
         res.redirect("/events", );
@@ -32,17 +37,17 @@ router.get("/:id", (req, res, next) => {
     Event.findById(id).populate("remarks").exec((err, event) => {
         if (err) return next(err);
         res.render("eventDetails.ejs", { event });
-    })
-})
+    });
+});
 
 // event's list based on specific category
 router.get("/:category/category", (req, res, next) => {
     let category = req.params.category;
-    Event.find({ category: { $in: [category] } }, (err, events) => {
+    Event.find({ category: category }, (err, events) => {
         if (err) return next(err);
         res.render("categoriesBasedList.ejs", { events });
-    })
-})
+    });
+});
 
 
 // increament likes

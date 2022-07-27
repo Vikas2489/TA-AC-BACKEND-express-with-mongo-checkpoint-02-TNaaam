@@ -28,13 +28,33 @@
                             <%})%>
                                 <%}) %>
                 </ul>
-
             </nav>
-            <form action="" method="GET">
-                <input type="text" placeholder="Search By category">
+            <form action="/search" method="GET">
+                <select name="category">
+                    <%arrOfAllCategories.forEach(category=>{%>
+                        <option value="<%=category%>">
+                            <%=category%>
+                        </option>
+                        <%})%>
+                </select>
                 <input class="inline" type="submit" value="Search By Category">
             </form>
+            <form action="/search" method="GET">
+                <select name="location">
+                    <%allLocation.forEach(location=>{%>
+                        <option value="<%=location%>">
+                            <%=location%>
+                        </option>
+                        <%})%>
+                </select>
+                <input class="inline" type="submit" value="Search By location">
+            </form>
+            <form action="/date" method="GET">
+                <input class="form-control" type="date" name="start_date">
+                <input class="form-control" placeholder="" type="date" name="end_date">
+                <input class="inline" type="submit">
+            </form>
         </aside>
-        <!-- <script src="/javascripts/script.js"></script> -->
+
     </body>
     <%-include( 'partials/footer' )-%>
