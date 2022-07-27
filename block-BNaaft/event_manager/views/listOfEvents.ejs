@@ -1,0 +1,60 @@
+<%-include( 'partials/header' )-%>
+
+    <body>
+        <h1>List of events are given below:-</h1>
+        <ul>
+            <% events.forEach(event=>{%>
+                <li>
+                    <a href="events/<%=event.id%>">
+                        <%= event.title%>
+                    </a>
+                </li>
+                <%})%>
+        </ul>
+        <div class="container-of-links">
+            <a href="/events/new" class="links"> Add Event</a>
+        </div>
+        <aside>
+            <h3>All Categories Are Listed Below :-</h3>
+            <nav>
+                <ul>
+                    <% events.forEach((event)=>{%>
+                        <% event.category.forEach(category=>{ %>
+                            <li>
+                                <a href="/events/<%=category%>/category">
+                                    <%=category%>
+                                </a>
+                            </li>
+                            <%})%>
+                                <%}) %>
+                </ul>
+            </nav>
+            <form action="/search" method="GET">
+                <select name="category">
+                    <%arrOfAllCategories.forEach(category=>{%>
+                        <option value="<%=category%>">
+                            <%=category%>
+                        </option>
+                        <%})%>
+                </select>
+                <input class="inline" type="submit" value="Search By Category">
+            </form>
+            <form action="/search" method="GET">
+                <select name="location">
+                    <%allLocation.forEach(location=>{%>
+                        <option value="<%=location%>">
+                            <%=location%>
+                        </option>
+                        <%})%>
+                </select>
+                <input class="inline" type="submit" value="Search By location">
+            </form>
+            <form action="/date" method="GET">
+                <input class="form-control" type="date" name="start_date">
+                <input class="form-control" placeholder="" type="date" name="end_date">
+                <input class="inline" type="submit">
+            </form>
+        </aside>
+
+    </body>
+    <%-include( 'partials/footer' )-%>

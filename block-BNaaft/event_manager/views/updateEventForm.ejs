@@ -1,0 +1,20 @@
+<%-include( 'partials/header' )-%>
+
+    <body>
+        <h1>Fill up details to add the event.</h1>
+        <form class="form" action="/events/<%=event.id%>" method="post">
+            <input value="<%=event.title%>" type="text" name="title" placeholder="Add title">
+            <textarea name="summary" cols="60.5" placeholder="Summary" rows="10"><%=event.summary%></textarea>
+            <input value="<%=event.host%>" type="text" name="host" placeholder="Add host">
+            <input value="<%=start_date%>" type="date" name="start_date">
+            <input value="<%=end_date%>" type="date" name="end_date">
+            <input value="<%=event.category%>" type="text" name="category" placeholder="Add category">
+            <input value="<%=event.location%>" type="text" name="location" placeholder="Add location">
+            <input type="submit" class="submit-btn" value="Add Event">
+        </form>
+        <div class="container-of-links text-center">
+            <a href="/events" class="links"> Lists Of All Events</a>
+        </div>
+    </body>
+
+    <%-include( 'partials/footer' )-%>

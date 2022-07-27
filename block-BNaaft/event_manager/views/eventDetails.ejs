@@ -1,0 +1,72 @@
+<%-include( 'partials/header' )-%>
+
+    <body>
+        <h1>
+            <%=event.title%>
+        </h1>
+
+        <h2>Hosted by
+            <%=event.host%>
+        </h2>
+        <p>
+            <%=event.summary%>
+        </p>
+        <h4>
+            <%=event.start_date%>
+        </h4>
+        <h4>
+            <%=event.end_date%>
+        </h4>
+        <ul>
+            <h3>Category</h3>
+            <%event.category.forEach(category=>{ %>
+                <li>
+                    <a href="/events/<%=category%>/category">
+                        <%= category%>
+                    </a>
+                </li>
+                <% }) %>
+        </ul>
+        <h3>
+            <%=event.location%>
+        </h3>
+
+        <p>
+            <%=event.likes%>
+        </p>
+        <a href="/events/new" class="links">Add Event</a>
+        <a href="/events" class="links">List Of All Events</a>
+        <div class="cnt-of-like-delete">
+            <a href="/events/<%=event.id%>/likes" class="like">Like</a>
+            <a href="/events/<%=event.id%>/edit" class="links">Edit</a>
+
+            <a href="/events/<%=event.id%>/delete" class="links">Delete</a>
+        </div>
+        <form class="form" action="/events/<%=event.id%>/remarks" method="post">
+            <textarea class="form-control" placeholder="Add remark" name="title" cols="61" rows="10"></textarea>
+            <input class="form-control" type="text" placeholder="Add author" name="author">
+            <input type="submit" value="Add remark" class="submit-btn">
+        </form>
+        <hr>
+        <div>
+            <% event.remarks.forEach((remark)=>{%>
+                <p>
+                    <%= remark.title%>
+                </p>
+                <h2>
+                    <%=remark.author%>
+                </h2>
+                <p>
+                    <%=remark.likes%>
+                </p>
+                <div class="cnt-of-like-delete">
+                    <a href="/remarks/<%=remark.id%>/likes" class="like">Like</a>
+                    <a href="/remarks/<%=remark.id%>/edit" class="links">Edit</a>
+                    <a href="/remarks/<%=remark.id%>/delete" class="links">Delete</a>
+                </div>
+                <hr>
+                <%}) %>
+
+        </div>
+    </body>
+    <%-include( 'partials/footer' )-%>
